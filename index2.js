@@ -81,10 +81,102 @@ for(let value of arr2){
     console.log(value);
 }
 
-//joining and spliting
-let num=[10,20,30,40];
+//joining , spliting ,sorting,filtering
+let num=[100,5,20,80,40,-4,-5];
+//join
 console.log(num.join(','));
+//split
 let num2='hello are you ok';
 console.log(num2.split(' '));
+//1. alphabetically sorting 
+console.log(num.sort());
+//2.numerically sorting 
+console.log(num.sort(function(a,b){return a-b;}));
+//filter
+console.log(num.filter(value => value<0 ));
 
 
+
+//FUNCTIONS
+
+//function call
+r1();
+
+//funciton declaration
+function r1(){
+    console.log('run');
+}
+
+//named function assignment 
+let named=function r2(){
+    console.log('named');
+}
+named();
+
+//anonymous function assignment
+let anonymous=function(){
+    console.log('anonymous');
+}
+anonymous();
+
+//hoisting => process of moving function declaration to the top of file and done automatically by JS engine
+
+//JS is dynamic language
+let x=1;
+x='a';
+console.log(x);
+
+function sum(a,b){
+    return a+b;
+}
+console.log(sum(1,2));//3
+console.log(sum(1));//NaN a=1, b=undefined
+console.log(sum());//NaN a=b=undefined
+console.log(sum(1,2,3,4,5));//3 a=1,b=2
+
+
+//adding numbers
+function add(){
+    let total=0
+    for(let value of arguments){
+        total += value;
+    }
+    return total;
+}
+console.log(add(1,2,3));
+
+//REST op => ...args => array
+function arg(num,value,...args){
+    console.log('num = '+num);
+    console.log('vlaue = '+value);
+    console.log('args = '+args);
+}
+arg(1,2,3,4);
+
+//default parameter
+function s1(p,q=5,r=4){
+    return p*q*r/100;
+}
+console.log(s1(1000,2,3));
+console.log(s1(1000,2)); //p=1000,q=2,r=4(default)
+console.log(s1(1000));//p=1000,q=5(default),r=4(default)
+
+
+//getter => access properties
+//setter => change or mutate properties
+let person ={
+    fname :'smit',
+    lname :'patel',
+    get fullname(){
+        return `${person.fname}  ${person.lname}`;
+    },
+    set fullname(value){
+        let p= value.split(' ');
+        this.fname=p[0];
+        this.lname=p[1];
+    }
+}
+
+console.log(person.fullname);
+person.fullname ='raj sharma';
+console.log(person.fullname);

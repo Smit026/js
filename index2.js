@@ -178,5 +178,12 @@ let person ={
 }
 
 console.log(person.fullname);
-person.fullname ='raj sharma';
+person.fullname ='ra sg';
 console.log(person.fullname);
+
+
+//reducing array
+let ar=[4,5,6,7];
+total=ar.reduce( (i,value) => i+value,0);
+console.log(total);
+
